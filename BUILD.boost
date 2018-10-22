@@ -97,6 +97,8 @@ boost_library(
     ],
 )
 
+boost_library(name="dll")
+
 BOOST_FIBER_NUMA_SRCS = select({
     ":linux_x86_64": [
         "libs/fiber/src/numa/linux/pin_thread.cpp",
@@ -901,6 +903,10 @@ boost_library(
         ":move",
         ":preprocessor",
     ],
+)
+boost_library(
+    name = "msm",
+    deps = [":fusion", ":proto"]
 )
 
 boost_library(
